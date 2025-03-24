@@ -102,6 +102,7 @@ app.post('/login', async (req, res) => {
 
 // Rajapintojen listaus, vain kirjautuneille käyttäjille
 app.get('/apis', isAuthenticated, async (req, res) => {
+  const userName = req.session.userName || null;
   res.sendFile(path.join(__dirname, 'views', 'apis.html'));
 });
 
