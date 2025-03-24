@@ -17,6 +17,17 @@
   <section class="section">
     <div class="container">
       <div class="box">
+        <script>
+            // Haetaan käyttäjänimi localStorageista
+            const userName = localStorage.getItem('userName');
+      
+            // Jos käyttäjänimi löytyy, näytetään tervehdys
+            if (userName) {
+              document.getElementById('user-greeting').innerText = `Welcome back, ${userName}!`;
+            } else {
+              document.getElementById('user-greeting').innerText = 'Welcome!';
+            }
+        </script>
         <h2 class="title is-4 has-text-centered">API listing</h2>
         <p><a href="/api/users">Users</a></p>
       </div>
@@ -24,6 +35,16 @@
   </section>
   <footer class="footer">
     <div class="content has-text-centered">
+        <p id="user-greeting"></p>
+        <script>
+            // Tarkista, onko käyttäjänimi tallennettu
+            const userName = localStorage.getItem('userName');
+
+            // Jos käyttäjänimi löytyy, tulostetaan se
+            if (userName) {
+              document.getElementById('user-greeting').innerText = `${userName}!`;
+            } 
+        </script>
         <form action="/logout" method="POST">
             <button class="button is-danger">Logout</button>
         </form>
