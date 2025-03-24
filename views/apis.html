@@ -24,16 +24,6 @@
   </section>
   <footer class="footer">
     <div class="content has-text-centered">
-        <p id="user-greeting"></p>
-        <script>
-            // Tarkista, onko käyttäjänimi tallennettu
-            const userName = localStorage.getItem('userName');
-
-            // Jos käyttäjänimi löytyy, tulostetaan se
-            if (userName) {
-              document.getElementById('user-greeting').innerText = `${userName}!`;
-            } 
-        </script>
         <form action="/logout" method="POST">
             <button class="button is-danger">Logout</button>
         </form>
