@@ -86,7 +86,8 @@ app.post('/login', async (req, res) => {
     const user = await db.get(sql, [email]);
     if (user && (password == user.password)) {
       req.session.userId = user.id; // Asetetaan istunto kirjautumisen yhteydessä
-      res.redirect('/apis'); // Ohjaa käyttäjä /apis-sivulle
+      req.session.userName = user.name;
+      res.redirect(`/apis?userName=${encodeURIComponent(user.name)}`);  // Ohjataan käyttäjä eteenpäin nimellä
     } else {
       res.status(401).send('Invalid email or password');
     }
