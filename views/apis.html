@@ -12,6 +12,21 @@
       background-color: #f5f5f5; /* Light gray background */
     }
   </style>
+  <script>
+    // Funktio URL-parametrien hakemiseen
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+  
+    // Hae käyttäjänimi URL-parametrista
+    const userName = getQueryParam('userName');
+  
+    // Näytä käyttäjänimi sivulla, jos se löytyy
+    if (userName) {
+      document.getElementById('user-greeting').innerText = `Hello, ${userName}!`;
+    }
+  </script>
 </head>
 <body>
   <section class="section">
@@ -24,6 +39,7 @@
   </section>
   <footer class="footer">
     <div class="content has-text-centered">
+        <p id="user-greeting"></p>
         <form action="/logout" method="POST">
             <button class="button is-danger">Logout</button>
         </form>
